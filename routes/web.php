@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PdfController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +19,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('pdf', [PdfController::class, 'index']);
-Route::get('pdf1', [PdfController::class, 'custom']);
+Route::get('pdf', [PdfController::class, 'index']);  //pdf with html render
+Route::get('pdf1', [PdfController::class, 'custom']); //pdf generate in controller
+
+//excels
+Route::get('/file-import',[UserController::class,
+            'importView'])->name('import-view');
+    Route::post('/import',[UserController::class,
+            'import'])->name('import');
+    Route::get('/export-users',[UserController::class,
+            'exportUsers'])->name('export');
