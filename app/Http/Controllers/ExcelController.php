@@ -30,7 +30,8 @@ class ExcelController extends Controller
         $pdf::setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
         $pdf::SetFont('times', 'A', 9.6); // set font
         foreach($data as $student){
-            $pdf::AddPage(); // add a page
+            $pdf::AddPage();
+            $pdf::setCellPadding(0, 0, 0, 0);
             $pdf::Cell(0, 0, "Serail No.        : ".$student[0], 1, 1, 'L', 0, '', 0);
             $pdf::Cell(0, 0, "Student's Name: ".$student[1], 1, 1, 'L', 0, '', 0);
             $pdf::Cell(0, 0, "Mother's Name : ".$student[2], 1, 1, 'L', 0, '', 0);
@@ -42,35 +43,47 @@ class ExcelController extends Controller
             $pdf::SetTextColor(0, 0, 110, 0);
             $pdf::Text(85, 14.6, $student[1]);
             $pdf::Text(85, 23.8, $student[3]);
-            $pdf::Text('20' ,'270', $student[89] );
-            $pdf::Text('40' ,'270', $student[90] );
-            $pdf::Text('60' ,'270', $student[91] );
-            $pdf::Text('80' ,'270', $student[92] );
-            $pdf::Text('100' ,'270', $student[93] );
-            $pdf::Text('120' ,'270', $student[94] );
-            $pdf::Text('140' ,'270', $student[95] );
+            $pdf::Text('20' ,'250', $student[89] );
+            $pdf::Text('40' ,'250', $student[90] );
+            $pdf::Text('60' ,'250', $student[91] );
+            $pdf::Text('80' ,'250', $student[92] );
+            $pdf::Text('100' ,'250', $student[93] );
+            $pdf::Text('120' ,'250', $student[94] );
+            $pdf::Text('140' ,'250', $student[95] );
             $pdf::SetTextColor(0);
             $pdf::SetFillColor(255, 255, 255);
 
             $pdf::SetXY(10,47.9);
-            $pdf::MultiCell(20, 5,"Course Code", 1, 'L',0,0);
-            $pdf::MultiCell(120, 5,"Course Name", 1, 'L',0,0);
-            $pdf::MultiCell(30, 5,"Credit (Earned)", 1, 'L',0,0);
-            $pdf::MultiCell(20, 5,"Grade", 1, 'L',0,0);
+            $pdf::MultiCell(20, 5,"Course Code", 1, 'C',0,0);
+            $pdf::MultiCell(120, 5,"Course Name", 1, 'C',0,0);
+            $pdf::MultiCell(30, 5,"Credit (Earned)", 1, 'C',0,0);
+            $pdf::MultiCell(20, 5,"Grade", 1, 'C',0,0);
             $pdf::SetXY(10,53);
-            $pdf::MultiCell(20, 210,"", 1, 'L',0,0);
-            $pdf::MultiCell(120, 210,"", 1, 'L',0,0);
-            $pdf::MultiCell(30, 210,"", 1, 'L',0,0);
-            $pdf::MultiCell(20, 210,"", 1, 'L',0,0);
+            $pdf::setCellPadding(1, 1, 1, 1);
+            $x = 10;
+            $y = 53;
+            for ($i=9; $i < 53; ) {
+                $pdf::MultiCell(20, 5, $student[$i], 0, 'C',0,0);
+                $i++;
+                $pdf::MultiCell(120, 5,$student[$i], 0, 'C',0,0);
+                $i++;
+                $pdf::MultiCell(30, 5,$student[$i], 0, 'C',0,0);
+                $i++;
+                $pdf::MultiCell(20, 5,$student[$i], 0, 'C',0,0);
+                $i++;
+                // $x+= 3;
+                $y+= 5;
+                $pdf::SetXY($x,$y);
+            }
 
-            $pdf::Text('10' ,'269', $student[89] );
-            $pdf::Text('30' ,'269', $student[90] );
-            $pdf::Text('50' ,'269', $student[91] );
-            $pdf::Text('70' ,'269', $student[92] );
-            $pdf::Text('90' ,'269', $student[93] );
-            $pdf::Text('110' ,'269', $student[94] );
-            $pdf::Text('130' ,'269', $student[95] );
-            $pdf::Text('40' ,'272.5', 'Date: '.$student[96] );
+            $pdf::Text('10' ,'250', $student[89] );
+            $pdf::Text('30' ,'250', $student[90] );
+            $pdf::Text('50' ,'250', $student[91] );
+            $pdf::Text('70' ,'250', $student[92] );
+            $pdf::Text('90' ,'250', $student[93] );
+            $pdf::Text('110' ,'250', $student[94] );
+            $pdf::Text('130' ,'250', $student[95] );
+            $pdf::Text('40' ,'260', 'Date: '.$student[96] );
         }
         $pdf::Output('Marksheet.pdf', 'I');
     }
