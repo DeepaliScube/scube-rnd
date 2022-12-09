@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\ExcelController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,3 +29,5 @@ Route::get('/file-import',[UserController::class,
             'import'])->name('import');
     Route::get('/export-users',[UserController::class,
             'exportUsers'])->name('export');
+
+Route::get('read-excel',[ExcelController::class,'index']);
