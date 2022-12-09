@@ -43,22 +43,22 @@ class ExcelController extends Controller
             $pdf::SetTextColor(0, 0, 110, 0);
             $pdf::Text(85, 14.6, $student[1]);
             $pdf::Text(85, 23.8, $student[3]);
-            $pdf::Text('20' ,'250', $student[89] );
-            $pdf::Text('40' ,'250', $student[90] );
-            $pdf::Text('60' ,'250', $student[91] );
-            $pdf::Text('80' ,'250', $student[92] );
-            $pdf::Text('100' ,'250', $student[93] );
-            $pdf::Text('120' ,'250', $student[94] );
-            $pdf::Text('140' ,'250', $student[95] );
+            $pdf::Text('20' ,'247', $student[89] );
+            $pdf::Text('43' ,'247', $student[90] );
+            $pdf::Text('65' ,'247', $student[91] );
+            $pdf::Text('93' ,'247', $student[92] );
+            $pdf::Text('120' ,'247', $student[93] );
+            $pdf::Text('150' ,'247', $student[94] );
+            $pdf::Text('180' ,'247', $student[95] );
             $pdf::SetTextColor(0);
             $pdf::SetFillColor(255, 255, 255);
 
             $pdf::SetXY(10,47.9);
             //For layout
-            $pdf::MultiCell(20, 200,"", 1, 'C',0,0);
-            $pdf::MultiCell(120, 200,"", 1, 'C',0,0);
-            $pdf::MultiCell(30, 200,"", 1, 'C',0,0);
-            $pdf::MultiCell(20, 200,"", 1, 'C',0,0);
+            $pdf::MultiCell(20, 180,"", 1, 'C',0,0);
+            $pdf::MultiCell(120, 180,"", 1, 'C',0,0);
+            $pdf::MultiCell(30, 180,"", 1, 'C',0,0);
+            $pdf::MultiCell(20, 180,"", 1, 'C',0,0);
 
             $pdf::SetXY(10,47.9);
             $pdf::MultiCell(20, 5,"Course Code", 1, 'C',0,0);
@@ -82,15 +82,26 @@ class ExcelController extends Controller
                 $y+= 5;
                 $pdf::SetXY($x,$y);
             }
+            $pdf::MultiCell(100, 5, "  Semester Grade Point Average  (SGPA) ", 1, 'C',0, 0, '10','230');
+            $pdf::MultiCell(27.9, 5, "Exam Registration (Credits)",1,'C',0,0,'10','236.6');
+            $pdf::MultiCell(30, 10.5, "Earn Credits",1,'C',0,0,'36.9','236.6');
+            $pdf::MultiCell(40, 10.5, "Earned Grade Points",1,'C',0,0,'55.9','236.6');
+            $pdf::MultiCell(20, 10.5, "SGPA",1,'C',0,0,'90','236.6');
+            $pdf::MultiCell(27.9, 5, $student[89],1,'C',0,0,'10','246');
+            $pdf::MultiCell(30, 5, $student[90],1,'C',0,0,'36.9','246');
+            $pdf::MultiCell(40, 5, $student[92],1,'C',0,0,'55.9','246');
+            $pdf::MultiCell(20, 5, $student[93],1,'C',0,0,'90','246');
+            // $pdf::MultiCell(90, 5,"fdf",1, 1, 'C', 0, '95','230');
+            // $pdf::MultiCell(89, 5, "  Cumulative Grade Point Average (CGPA)    : ",1,'C',0,0,'111','230');
+            // $pdf::MultiCell(30.9, 5, "Cumulative Credits Earned",1,'C',0,0,'111','236.6');
+            // $pdf::MultiCell(30, 5, "Grade Points Earned",1,'C',0,0,'141','236.6');
+            // $pdf::MultiCell(39, 10.5, "CGPA",1,'C',0,0,'161','236.6');
+            // $pdf::MultiCell(30.9, 5, $student[93],1,'C',0,0,'111','246');
+            // $pdf::MultiCell(30, 5, $student[94],1,'C',0,0,'141','246');
+            // $pdf::MultiCell(39, 5, $student[95],1,'C',0,0,'161','246');
 
-            $pdf::Text('10' ,'250', $student[89] );
-            $pdf::Text('30' ,'250', $student[90] );
-            $pdf::Text('50' ,'250', $student[91] );
-            $pdf::Text('70' ,'250', $student[92] );
-            $pdf::Text('90' ,'250', $student[93] );
-            $pdf::Text('110' ,'250', $student[94] );
-            $pdf::Text('130' ,'250', $student[95] );
-            $pdf::Text('40' ,'260', 'Date: '.$student[96] );
+            $pdf::Text('10' ,'260', 'Date: '.$student[96] );
+
         }
         $pdf::Output('Marksheet.pdf', 'I');
     }
