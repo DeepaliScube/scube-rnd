@@ -54,6 +54,13 @@ class ExcelController extends Controller
             $pdf::SetFillColor(255, 255, 255);
 
             $pdf::SetXY(10,47.9);
+            //For layout
+            $pdf::MultiCell(20, 200,"", 1, 'C',0,0);
+            $pdf::MultiCell(120, 200,"", 1, 'C',0,0);
+            $pdf::MultiCell(30, 200,"", 1, 'C',0,0);
+            $pdf::MultiCell(20, 200,"", 1, 'C',0,0);
+
+            $pdf::SetXY(10,47.9);
             $pdf::MultiCell(20, 5,"Course Code", 1, 'C',0,0);
             $pdf::MultiCell(120, 5,"Course Name", 1, 'C',0,0);
             $pdf::MultiCell(30, 5,"Credit (Earned)", 1, 'C',0,0);
@@ -63,13 +70,13 @@ class ExcelController extends Controller
             $x = 10;
             $y = 53;
             for ($i=9; $i < 53; ) {
-                $pdf::MultiCell(20, 5, $student[$i], 0, 'C',0,0);
+                $pdf::MultiCell(20, 5, $student[$i], 0, 'L',0,0);
                 $i++;
-                $pdf::MultiCell(120, 5,$student[$i], 0, 'C',0,0);
+                $pdf::MultiCell(120, 5,$student[$i], 0, 'L',0,0);
                 $i++;
-                $pdf::MultiCell(30, 5,$student[$i], 0, 'C',0,0);
+                $pdf::MultiCell(30, 5,$student[$i], 0, 'L',0,0);
                 $i++;
-                $pdf::MultiCell(20, 5,$student[$i], 0, 'C',0,0);
+                $pdf::MultiCell(20, 5,$student[$i], 0, 'L',0,0);
                 $i++;
                 // $x+= 3;
                 $y+= 5;
