@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ExcelController;
+use App\Http\Controllers\CertificateController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,3 +32,4 @@ Route::get('/file-import',[UserController::class,
             'exportUsers'])->name('export');
 
 Route::get('read-excel',[ExcelController::class,'index']);
+Route::get('certificate',[CertificateController::class,'index']);

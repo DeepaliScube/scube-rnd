@@ -105,3 +105,14 @@ foreach ($sheetData as $t) {
             // $pdf::Cell(0, 0, $stud[95], 0, 1, 'L', 0, '', 0);
             // $pdf::Cell(0, 0, $stud[96], 0, 1, 'L', 0, '', 0);
             // MultiCell($w, $h, $txt, $border=0, $align='J', $fill=0, $ln=1, $x='', $y='', $reseth=true, $stretch=0, $ishtml=false, $autopadding=true, $maxh=0)
+**********************************************************************************************************************************************
+This is to certify that Mr./Ms. ADDENKI AMANI
+Son / Daughter of ADDENKI RAMANA
+Passed M.Tech. POWER ELECTRONICS & ELECTRICAL DRIVES degree
+
+examination of this college (Autonomous) affiliated to JNTUH, Hyderabad,
+held in AUGUST,2021 and that he / she was placed in
+
+FIRST CLASS WITH DISTINCTION
+
+He / She has satisfied all the requirements for the award of the degree.
