@@ -1,0 +1,118 @@
+$reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+
+$spreadsheet = $reader->load($inputFileName);
+
+$d=$spreadsheet->getSheet(0)->toArray(); //GET ROW
+$col= $spreadsheet->setActiveSheetIndex(0)->getHighestColumn();
+
+
+echo count($d).'---'.$col.' <br>';
+
+$sheetData = $spreadsheet->getActiveSheet()->toArray();
+
+$i=1;
+unset($sheetData[0]);
+
+foreach ($sheetData as $t) {
+// process element here;
+
+    echo $i."---".$t[0].",".$t[1]." <br>";
+    $i++;
+}
+**********************************************************************************************************************************************
+//Get sheet name, number of column and row and cell range
+        //Got the sheet present in excel
+        $inputFileType = 'Xlsx';
+        $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($inputFileType);
+        $worksheetNames = $reader->listWorksheetNames($inputFileName);
+        echo '<h3>Worksheet Names</h3>';
+        echo '<ol>';
+        foreach ($worksheetNames as $worksheetName) {
+            echo '<li>', $worksheetName, '</li>';
+        }
+        echo '</ol>';
+        echo '********************************';
+        $worksheetData = $reader->listWorksheetInfo($inputFileName);
+        echo '<h3>Worksheet Information</h3>';
+        echo '<ol>';
+        foreach ($worksheetData as $worksheet) {
+            echo '<li>', $worksheet['worksheetName'], '<br />';
+            echo 'Rows: ', $worksheet['totalRows'],
+                ' Columns: ', $worksheet['totalColumns'], '<br />';
+            echo 'Cell Range: A1:',
+            $worksheet['lastColumnLetter'], $worksheet['totalRows'];
+            echo '</li>';
+        }
+        echo '</ol>';
+**********************************************************************************************************************************************
+//Print data as it is present in excel
+ $inputFileName = 'C:/Users/Admin/Downloads/Deepali/data.xlsx';
+        $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader('Xlsx');
+        $reader->setReadDataOnly(TRUE);
+        $spreadsheet = $reader->load($inputFileName);
+
+        $worksheet = $spreadsheet->getActiveSheet();
+
+        echo '<table>' . PHP_EOL;
+        foreach ($worksheet->getRowIterator() as $row) {
+            echo '<tr>' . PHP_EOL;
+            $cellIterator = $row->getCellIterator();
+            $cellIterator->setIterateOnlyExistingCells(FALSE); // This loops through all cells,
+                                                            //    even if a cell value is not set.
+                                                            // For 'TRUE', we loop through cells
+                                                            //    only when their value is set.
+                                                            // If this method is not called,
+                                                            //    the default value is 'false'.
+            foreach ($cellIterator as $cell) {
+                echo '<td>' .
+                    $cell->getValue() .
+                    '</td>' . PHP_EOL;
+            }
+            echo '</tr>' . PHP_EOL;
+        }
+        echo '</table>' . PHP_EOL;
+
+        $sheet = $spreadsheet->getSheet($spreadsheet->getFirstSheetIndex());
+        $data = $sheet->toArray();
+        dd($data)
+**********************************************************************************************************************************************
+
+            // $pdf::Cell(0,0, 'Serial No.'.$stud[0],0,1,'R',0,'',0);
+            // // $pdf::Cell(0,0, 'Serial No.'.$stud[0],'','','R');
+
+            // $pdf::Cell(0, 0, $stud[1], 0, 1, 'L', 0, '', 0);
+            // $pdf::Cell(0, 0, $stud[2], 0, 1, 'L', 0, '', 0);
+            // $pdf::Cell(0, 0, $stud[3], 0, 1, 'L', 0, '', 0);
+            // $pdf::Cell(0, 0, $stud[4], 0, 1, 'L', 0, '', 0);
+            // $pdf::Cell(0, 0, $stud[5], 0, 1, 'L', 0, '', 0);
+            // $pdf::Cell(0, 0, $stud[6], 0, 1, 'L', 0, '', 0);
+            // $pdf::Cell(0, 0, $stud[7], 0, 1, 'L', 0, '', 0);
+            // $pdf::Cell(0, 0, $stud[8], 0, 1, 'L', 0, '', 0);
+            // $pdf::Cell(0, 0, '', 0, 1, 'L', 0, '', 0);
+            // $pdf::Cell(0, 0, '', 0, 1, 'L', 0, '', 0);
+            // for($i = 9;$i<=53;$i++){
+            //     $pdf::Cell(0, 0, $stud[$i], 0, 1, 'L', 0, '', 0);
+            //     $pdf::Cell(0, 0, $stud[$i], 0, 1, 'L', 0, '', 0);
+            //     $pdf::Cell(0, 0, $stud[$i], 0, 1, 'L', 0, '', 0);
+            //     $pdf::Cell(0, 0, $stud[$i], 0, 1, 'L', 0, '', 0);
+            // }
+            // $pdf::Cell(0, 0, $stud[89], 0, 1, 'L', 0, '', 0);
+            // $pdf::Cell(0, 0, $stud[90], 0, 1, 'L', 0, '', 0);
+            // $pdf::Cell(0, 0, $stud[91], 0, 1, 'L', 0, '', 0);
+            // $pdf::Cell(0, 0, $stud[92], 0, 1, 'L', 0, '', 0);
+            // $pdf::Cell(0, 0, $stud[93], 0, 1, 'L', 0, '', 0);
+            // $pdf::Cell(0, 0, $stud[94], 0, 1, 'L', 0, '', 0);
+            // $pdf::Cell(0, 0, $stud[95], 0, 1, 'L', 0, '', 0);
+            // $pdf::Cell(0, 0, $stud[96], 0, 1, 'L', 0, '', 0);
+            // MultiCell($w, $h, $txt, $border=0, $align='J', $fill=0, $ln=1, $x='', $y='', $reseth=true, $stretch=0, $ishtml=false, $autopadding=true, $maxh=0)
+**********************************************************************************************************************************************
+This is to certify that Mr./Ms. ADDENKI AMANI
+Son / Daughter of ADDENKI RAMANA
+Passed M.Tech. POWER ELECTRONICS & ELECTRICAL DRIVES degree
+
+examination of this college (Autonomous) affiliated to JNTUH, Hyderabad,
+held in AUGUST,2021 and that he / she was placed in
+
+FIRST CLASS WITH DISTINCTION
+
+He / She has satisfied all the requirements for the award of the degree.
