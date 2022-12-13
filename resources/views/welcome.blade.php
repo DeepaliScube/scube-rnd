@@ -81,19 +81,15 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                   My Work
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                    <a href="{{route('import-view')}}">view</a>
+                    <a href="{{url('pdf')}}">PDF with html render</a>
+                    <a href="{{url('pdf1')}}">PDF generate in controller</a>
+                    <a href="{{url('read-excel')}}">Excel To PDF</a>
+                    <a href="{{url('certificate')}}">Certificate</a>
+                    <a href="{{url('imt')}}">Intifacc Mordern Technology</a>
                 </div>
             </div>
         </div>
