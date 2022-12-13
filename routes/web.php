@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ExcelController;
+use App\Http\Controllers\imtController;
 use App\Http\Controllers\CertificateController;
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,4 @@ Route::get('/file-import',[UserController::class,
 
 Route::get('read-excel',[ExcelController::class,'index']);
 Route::get('certificate',[CertificateController::class,'index']);
+Route::get('imt',[imtController::class,'index']);
